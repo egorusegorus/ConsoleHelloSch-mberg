@@ -5,34 +5,37 @@ namespace ConsoleHelloSchömberg
     internal class Program
     {
         static void Main(string[] args)
-        {bool exit=false;
-            Lotto()
+        {//bool exit=false;
+           Lotto();
             //TaschenRechner(exit);
             // HelloStadt();
             // summe();
+            
         }
 
         public static void Lotto()
         {
             Random r = new Random();
             int[] ar1 = new int[49];
-            int[] ar2 = new int[49];
-            for (int i = 0; i < ar1.Length; i++)
+            int[] ar2 = new int[6];
+            for (int i = 0; i < 49; i++)
             {
-                ar1[i] = i + 1;
+                ar1[i] = i+1 ;
             }
 
             for (int i = 0; i < 6; i++)
             {
-                int a = r.Next(ar1.Length);
-                while (a != ar1[a + 1])
+                int a =r.Next(1,50);
+                if (a == ar1[a - 1])
                 {
-                    a = r.Next(ar1.Length);
+                    ar1[a - 1] = 0;
+                    ar2[i]= a;
                 }
-                ar1[a + 1] = 0;
-                ar2[i] = a;
+                else { while()}
             }
             Console.WriteLine("Lotto Zahlen: " + ar2[0] + "," + ar2[1] + "," + ar2[2] + "," + ar2[3] + "," + ar2[4] + "," + ar2[5]);
+            // Console.WriteLine("Lotto Zahlen: " + ar2[0] + "," + ar2[1] + "," + ar2[2] + "," + ar2[3] + "," + ar2[4] + "," + ar2[5]);
+            Console.ReadLine();
         }
 
 
