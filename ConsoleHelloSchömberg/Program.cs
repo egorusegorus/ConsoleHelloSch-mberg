@@ -9,9 +9,11 @@ namespace ConsoleHelloSchömberg
             DoItLong(exit);
             Console.WriteLine("Herzlich willkommen in TaschenRechner, was möchtest du tun? ");
             Console.WriteLine("1. Summe.");
-            Console.WriteLine("2. ");
-            Console.WriteLine("Herzlich willkommen in TaschenRechner, was möchtest du tun? ");
-            Console.WriteLine("Herzlich willkommen in TaschenRechner, was möchtest du tun? ");
+            Console.WriteLine("2. Substraktion");
+            Console.WriteLine("3. Multiplikation");
+            Console.WriteLine("4. Division");
+            Console.WriteLine("4. Qwadrat");
+            Console.WriteLine("4. Wurzel");
             // HelloStadt();
             // summe();
         }
