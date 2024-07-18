@@ -5,8 +5,8 @@ namespace ConsoleHelloSchömberg
     internal class Program
     {
         static void Main(string[] args)
-        {//bool exit=false;
-            Lotto();
+        {bool exit=false;
+            Lotto()
             //TaschenRechner(exit);
             // HelloStadt();
             // summe();
@@ -25,7 +25,7 @@ namespace ConsoleHelloSchömberg
             for (int i = 0; i < 6; i++)
             {
                 int a = r.Next(ar1.Length);
-                while (a != ar1[a - 1])
+                while (a != ar1[a + 1])
                 {
                     a = r.Next(ar1.Length);
                 }
@@ -34,6 +34,7 @@ namespace ConsoleHelloSchömberg
             }
             Console.WriteLine("Lotto Zahlen: " + ar2[0] + "," + ar2[1] + "," + ar2[2] + "," + ar2[3] + "," + ar2[4] + "," + ar2[5]);
         }
+
 
         public static void TaschenRechner(bool exit) {
             while (!exit) {
