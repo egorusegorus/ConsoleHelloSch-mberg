@@ -5,26 +5,156 @@ namespace ConsoleHelloSchömberg
     internal class Program
     {
         static void Main(string[] args)
-        {bool exit=false;
-            DoItLong(exit);
-            Console.WriteLine("Herzlich willkommen in TaschenRechner, was möchtest du tun? ");
-            Console.WriteLine("1. Summe.");
-            Console.WriteLine("2. Substraktion");
-            Console.WriteLine("3. Multiplikation");
-            Console.WriteLine("4. Division");
-            Console.WriteLine("4. Qwadrat");
-            Console.WriteLine("4. Wurzel");
+        {//bool exit=false;
+            Lotto();
+            //TaschenRechner(exit);
             // HelloStadt();
             // summe();
         }
 
+        public static void Lotto()
+        {
+            Random r = new Random();
+            int[] ar1 = new int[49];
+            int[] ar2 = new int[49];
+            for (int i = 0; i < ar1.Length; i++)
+            {
+                ar1[i] = i + 1;
+            }
 
-        public static void DoItLong(bool exit) {
-            while (exit) { 
-            
+            for (int i = 0; i < 6; i++)
+            {
+                int a = r.Next(ar1.Length);
+                while (a != ar1[a - 1])
+                {
+                    a = r.Next(ar1.Length);
+                }
+                ar1[a + 1] = 0;
+                ar2[i] = a;
+            }
+            Console.WriteLine("Lotto Zahlen: " + ar2[0] + "," + ar2[1] + "," + ar2[2] + "," + ar2[3] + "," + ar2[4] + "," + ar2[5]);
+        }
+
+        public static void TaschenRechner(bool exit) {
+            while (!exit) {
+                Console.WriteLine("Herzlich willkommen in TaschenRechner, was möchtest du tun? ");
+                Console.WriteLine("1. Summe.");
+                Console.WriteLine("2. Substraktion");
+                Console.WriteLine("3. Multiplikation");
+                Console.WriteLine("4. Division");
+                Console.WriteLine("5. Quadrat");
+                Console.WriteLine("6. Wurzel");
+                Console.WriteLine("7. Ausgang");
+                Console.WriteLine("\n");
+                Console.WriteLine("Was möchtest du weiter tun");
+                string? wahlStr = Console.ReadLine();
+                int wahlInt;
+                if (int.TryParse(wahlStr, out wahlInt))
+                {
+                    
+                    Console.WriteLine("Dein Zahl: " + wahlInt);
+                }
+                else
+                {
+                    // Konwersja się nie powiodła, obsłuż błąd
+                    Console.WriteLine("Falsche Zahl.");
+                }
+                switch (wahlInt) 
+                {
+                    case 1:
+                        Summe();
+                        break;
+                    case 2:
+                        Substraktion();
+                        break;
+                    case 3:
+                        Multiplikation();
+                        break;
+                    case 4:
+                        Devision();
+                        break;
+                    case 5:
+                        Qudrat();
+                        break;
+                    case 6:
+                        Wurzel();
+                        break;
+                    case 7:
+                        exit = true;
+                        break;
+                   
+                    default:
+                        Console.Clear();    
+                        Console.WriteLine("Etwas ist schief gelaufen");
+                        
+                        break;
+
+                }
+
             }
         
         }
+
+
+        private static void Wurzel()
+        {
+            Console.Clear();
+            double a = NimmWert();
+
+            a = Math.Sqrt(a);
+            Console.WriteLine("Ergenis Wurzel von a ist: " + a);
+            Console.Read();
+        }
+        private static void Qudrat()
+        {
+            Console.Clear();
+            double a = NimmWert();
+         
+            a = a * a;
+            Console.WriteLine("Ergenis a^2 ist: " + a);
+            Console.Read();
+        }
+        private static void Devision()
+        {
+            Console.Clear();
+            double a = NimmWert();
+            double b = NimmWert();
+            b = b / a;
+            Console.WriteLine("Ergenis b/a ist: " + b);
+            Console.Read();
+        }
+        private static void Multiplikation()
+        {
+            Console.Clear();
+            double a = NimmWert();
+            double b = NimmWert();
+            b = b * a;
+            Console.WriteLine("Ergenis b*a ist: " + b);
+            Console.Read();
+        }
+        private static void Substraktion()
+        {
+            Console.Clear();
+            double a = NimmWert();
+            double b = NimmWert();
+            b = b-a;
+            Console.WriteLine("Ergenis b-a ist: " + b);
+            Console.Read();
+        }
+        private static void Summe() {
+            Console.Clear();
+            double a = NimmWert();
+            double b = NimmWert();
+            b = a + b;
+            Console.WriteLine("Ergenis a+b ist: " + b);
+            Console.Read(); 
+        }
+        private static double NimmWert(){
+            Console.WriteLine("Gib mir der Zahl: ");
+            string? a=Console.ReadLine();
+            double b = Convert.ToDouble(a);
+            return b; }
+
         public static void HelloStadt()
         {
             string[] ar = { "Pforzheim", "Schömberg", "Stutgart", "Ravensburg" };
