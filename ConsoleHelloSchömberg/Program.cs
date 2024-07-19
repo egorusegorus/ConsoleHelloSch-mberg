@@ -24,11 +24,30 @@ namespace ConsoleHelloSchömberg
             int a = 0;
             for (int i = 0; i < arWürfe.Length; i++) {
                 a+=arWürfe[i];
-                if (i == 0) { continue; }
-                else { arWürfe[0] += arWürfe[i]; }
-            }
+                /*if (i == 0) 
+                { continue; }
+                else 
+                { arWürfe[0] += arWürfe[i]; }
+            */
+                }
             Console.WriteLine("Summe: "+ arWürfe[0]);
             Console.WriteLine("Summe: " + a);
+            double d = (double) a / arWürfe.Length;
+            Console.WriteLine("Der Mittelwert: " + d.ToString("N2"));  /// round to 2 place d.ToString("N2"));
+            int b = 0;
+            for (int i = 0; i < arWürfe.Length-1; i++) { 
+            if (arWürfe[i] > b) { b = arWürfe[i]; }
+                
+            }
+            Console.WriteLine("Max in Arr: " + b);
+           
+            int e = arWürfe[0];
+            for (int i = 0; i < arWürfe.Length - 1; i++)
+            {
+                if (arWürfe[i] < e) { e = arWürfe[i]; }
+
+            }
+            Console.WriteLine("MIN in Arr: " + e);
             Console.ReadLine();
         }
 
