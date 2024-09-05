@@ -9,7 +9,7 @@ namespace ConsoleHelloSchömberg
             //Lotto();
             // TaschenRechner(exit);
             // HelloStadt();
-            // summe();
+            // summe();bjfggvjugf
             //SorrtirenArr();
             SummeArr();
         }
